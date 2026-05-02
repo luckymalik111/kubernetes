@@ -1,26 +1,26 @@
-apiVersion: apps
+apiVersion: apps/v1
 kind: Deployment
+
 metadata:
-name: drblaxk
-labels:
-app: drblaxk
+  name: drblaxk
+  labels:
+    app: drblaxk
 
 spec:
-replicas: 2
+  replicas: 2
 
-selector:
-matchLabels:
-app: drblaxk
+  selector:
+    matchLabels:
+      app: drblaxk
 
-template:
-metadata:
-labels:
-app: drblaxk
+  template:
+    metadata:
+      labels:
+        app: drblaxk
 
-spec:
-  containers:
-  - name: drblaxk
-    image: drblaxk/toothiii-website:latest
-
-    ports:
-    - containerPort: 80
+    spec:
+      containers:
+      - name: drblaxk
+        image: drblaxk/toothiii-website:latest
+        ports:
+        - containerPort: 80
