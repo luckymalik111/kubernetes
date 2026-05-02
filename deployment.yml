@@ -19,7 +19,7 @@ app: drblaxk
 
 spec:
   containers:
-  - name: nginx
+  - name: drblaxk
     image: drblaxk/toothiii-website:latest
 
     ports:
