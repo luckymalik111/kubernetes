@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: drblaxk
+labels:
+app: drblaxk
+
+spec:
+replicas: 2
+
+selector:
+matchLabels:
+app: drblaxk
+
+template:
+metadata:
+labels:
+app: drblaxk
+
+spec:
+  containers:
+  - name: nginx
+    image: drblaxk/toothiii-website:latest
+
+    ports:
+    - containerPort: 80
