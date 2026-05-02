@@ -1,26 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: drblaxk
-labels:
-app: drblaxk
+  name: nginx-deployment
+  labels:
+    app: nginx
 
 spec:
-replicas: 2
+  replicas: 2
 
-selector:
-matchLabels:
-app: drblaxk
+  selector:
+    matchLabels:
+      app: nginx
 
-template:
-metadata:
-labels:
-app: drblaxk
+  template:
+    metadata:
+      labels:
+        app: nginx
 
-spec:
-  containers:
-  - name: nginx
-    image: drblaxk/toothiii-website:latest
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
 
-    ports:
-    - containerPort: 80
+        ports:
+        - containerPort: 80
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "200m"
+            memory: "256Mi"
