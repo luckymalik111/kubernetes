@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: my-stateful-app
+  namespace: lab1
+spec:
+  serviceName: "my-stateful-service"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-stateful-app
+  template:
+    metadata:
+      labels:
+        app: my-stateful-app
+    spec:
+      containers:
+      - name: nginx
+        image: drblaxk/toothiii-website:latest
+        ports:
+        - containerPort: 80
